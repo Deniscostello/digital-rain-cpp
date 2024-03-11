@@ -7,7 +7,7 @@ categories: demo
 
 This is my first paragraph..
 
-## This is a Heading
+## Introduction
 
 This is a paragraph. Add an empty line to start a new paragraph.
 
