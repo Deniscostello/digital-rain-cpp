@@ -9,10 +9,10 @@ categories: demo
 
 As part of the C++ Programming module in my final year at ATU Galway, I've been assigned to develop a modern C++ console application to execute my own interpretation of **Digital rain**. So what is my interpretation of digital rain?
 
-Digital rain is the visual effect which was made famous when it was used for the  opening scene in the 1999 film “The Matrix”. The digital rain is displayed as a stream of green characters falling  vertically down the screen. This effect is still strongly linked to the film and is often used in films to represent types of computer processes, such as hacking. </br>
+Digital rain is the visual effect which was made famous when it was used for the  opening scene in the 1999 film “The Matrix”. The digital rain is displayed as a stream of green characters falling  vertically down the screen. This effect is still strongly linked to the film and is often used in films to represent types of computer processes, such as hacking. 
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Matrix-Rain.png" width="600" height="300">
 
-</br>
+
 *Figure 1*
 
 ## Software Design And Test
@@ -33,12 +33,14 @@ This class also has five key functions,
 - GotoXY – go to x and y coordinate on console,
 - FillDroplets – fill raindrops,
 - SetTextColor – set the color of raindrop
-</br>
 
 
-<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/UML-Droplet.png" width="300" height="300"> </br> *Figure 2*
 
-</br>
+<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/UML-Droplet.png" width="300" height="300"> 
+
+*Figure 2*
+
+
 Using OOP my code was faster and easier to execute, while maintaining a clear structure for the project. OOP allowed me to keep my C++ code DRY “Don’t Repeat Yourself".
 
 ### Test functions
@@ -50,16 +52,20 @@ As I wanted to keep my main code as clean as possible, I used **RunTest** as a g
 ## Algorithm 
 
 ### Main
-When the project execution begins, main.cpp is the first to run. The first line in main is **RunTest** function. Once all the unit tests are complete the main thread is put in sleep mode for 2 seconds, this is so I can view the test results. After the delay the screen is cleared using *system(“cls”)*. Once the screen is cleared, the cursor visibility is set to false to ensure the cursor will not be visible when the raindrops begin. Using windows **GetStdHandle** API function to get the handle for the console. Then setting cursorInfo to type **CONSOLE_CURSOR_INFO**. Setting the cursor to false. </br>
-</br>
+When the project execution begins, main.cpp is the first to run. The first line in main is **RunTest** function. Once all the unit tests are complete the main thread is put in sleep mode for 2 seconds, this is so I can view the test results. After the delay the screen is cleared using *system(“cls”)*. Once the screen is cleared, the cursor visibility is set to false to ensure the cursor will not be visible when the raindrops begin. Using windows **GetStdHandle** API function to get the handle for the console. Then setting cursorInfo to type **CONSOLE_CURSOR_INFO**. Setting the cursor to false.  
+
+
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/SetCursorFalse.png" width="600" height="100">
 
 *Figure 3.1*
 
 
 ### Threads
-This project uses multithreading to execute threads concurrently. Using a for loop, a new thread is added to a vector of threads. I create a variable called numThrreads which is used to determine the sizes of the vector. Looping through when i is less than numThreads. Using a new instance of my class **Droplet** dl. Each thread will execute the Raindrop function with its own copy of the dl object. Before creating a new thread, the current thread is paused for 100 milliseconds. It is used to create a timing between threads. </br> </br>
-<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/ThreadsImg.png" width="300" height="300"> </br> *Figure 3.2*
+This project uses multithreading to execute threads concurrently. Using a for loop, a new thread is added to a vector of threads. I create a variable called numThrreads which is used to determine the sizes of the vector. Looping through when i is less than numThreads. Using a new instance of my class **Droplet** dl. Each thread will execute the Raindrop function with its own copy of the dl object. Before creating a new thread, the current thread is paused for 100 milliseconds. It is used to create a timing between threads. 
+
+
+<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/ThreadsImg.png" width="300" height="300"> 
+*Figure 3.2*
 
 ### Droplet
 
@@ -67,9 +73,10 @@ This project uses multithreading to execute threads concurrently. Using a for lo
 Raindrop initially gets the width and height of the console. Using the windows **GetStdHandle** API function to get the handle of the console window. Getting the consoles screens dimensions using windows **CONSOLE_SCREEN_BUFFER_INFO** API function. Checking if GetConsoleScreenBufferInfo returns a nonzero value, if it does then the width is set to the number of spaces from right to left, and the height is set from bottom to top.
 
 #### *Random*
-I want both the size of the raindrops and where they fall from to be random. Initially I used the standard C++ rand() function, however after running the project a few times it was obvious that it wasn’t truly random. After speaking to my lecturer, Michelle Lynch, I found out to create a truly random sequence I would need to use the standard library < random > for it's **default_random_engine**  and the < chrono > to use time_since_epoch, “In computer science, the epoch time, also known as Unix time is considered the number of seconds since 1 January 1970” [1]. </br></br>
-<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Random engine.png" width="600" height="100">
+I want both the size of the raindrops and where they fall from to be random. Initially I used the standard C++ rand() function, however after running the project a few times it was obvious that it wasn’t truly random. After speaking to my lecturer, Michelle Lynch, I found out to create a truly random sequence I would need to use the standard library < random > for it's **default_random_engine**  and the < chrono > to use time_since_epoch, “In computer science, the epoch time, also known as Unix time is considered the number of seconds since 1 January 1970” [1]. 
 
+
+<img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Random engine.png" width="600" height="100">
 *Figure 3.3*
 
 
@@ -77,7 +84,9 @@ For the length of the raindrop, it will be anywhere from 5 and the randomly gene
 
 
 #### *FillDroplets*
-The **FillDroplets** function adds characters to the raindrops vector. It initially puts a blank character at the beginning of raindrops. Loops for the length set by the random engine in **Raindrop**. As there is a blank character added to raindrops before the loop, raindrops will always be greater than length by 1. Each iteration of the loop I use the random engine again. This time I return a random integer from 32 to 63. This two ranges were inputted by me. </br></br>
+The **FillDroplets** function adds characters to the raindrops vector. It initially puts a blank character at the beginning of raindrops. Loops for the length set by the random engine in **Raindrop**. As there is a blank character added to raindrops before the loop, raindrops will always be greater than length by 1. Each iteration of the loop I use the random engine again. This time I return a random integer from 32 to 63. This two ranges were inputted by me. 
+
+
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/ASCII Table.jpeg" width="450" height="300">
 
 *Figure 3.4*
