@@ -12,7 +12,6 @@ As part of the C++ Programming module in my final year at ATU Galway, I've been 
 Digital rain is the visual effect which was made famous when it was used for the  opening scene in the 1999 film “The Matrix”. The digital rain is displayed as a stream of green characters falling  vertically down the screen. This effect is still strongly linked to the film and is often used in films to represent types of computer processes, such as hacking. 
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Matrix-Rain.png" width="600" height="300">
 
-
 *Figure 1*
 
 ## Software Design And Test
@@ -65,6 +64,7 @@ This project uses multithreading to execute threads concurrently. Using a for lo
 
 
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/ThreadsImg.png" width="300" height="300"> 
+
 *Figure 3.2*
 
 ### Droplet
@@ -77,6 +77,7 @@ I want both the size of the raindrops and where they fall from to be random. Ini
 
 
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Random engine.png" width="600" height="100">
+
 *Figure 3.3*
 
 
