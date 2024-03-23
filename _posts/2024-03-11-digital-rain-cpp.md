@@ -7,7 +7,7 @@ categories: demo
 
 ## Introduction
 
-As part of the C++ Programming module in my final year at ATU Galway, I've been assigned to develop a modern C++ console application to execute my own interpretation of **Digital rain**. So what is my interpretation of digital rain?
+As part of the C++ Programming module in my final year at ATU Galway, I've been assigned to develop a modern C++ console application to execute my own interpretation of **Digital rain**. So what is digital rain?
 
 Digital rain is the visual effect which was made famous when it was used for the  opening scene in the 1999 film “The Matrix”. The digital rain is displayed as a stream of green characters falling  vertically down the screen. This effect is still strongly linked to the film and is often used in films to represent types of computer processes, such as hacking. 
 <img src="https://raw.githubusercontent.com/Deniscostello/digital-rain-cpp/main/docs/assets/images/Matrix-Rain.png" width="600" height="300">
